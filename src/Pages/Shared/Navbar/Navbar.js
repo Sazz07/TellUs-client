@@ -290,7 +290,7 @@ const Navbar = () => {
                     className="flex rounded-lg py-2 font-semibold text-[#5596e6] text-2xl"
                 >
                     <img src={logo} className="w-8 rounded-full " alt="" />
-                    <span className="px-1"> FriendKitBook</span>
+                    <span className="px-1"> TellUs</span>
                 </Link>
             </div>
             <div className="navbar-center hidden md:flex lg:flex">
@@ -346,7 +346,7 @@ const Navbar = () => {
                         {user?.email ? (
                             <>
                                 <li>
-                                    <PrimaryButton onClick={handleLogOut}>logout</PrimaryButton>
+                                    <PrimaryButton handler={logOut}>logout</PrimaryButton>
                                 </li>
                             </>
                         ) : (

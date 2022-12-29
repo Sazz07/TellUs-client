@@ -19,8 +19,12 @@ const AuthProvider = ({ children }) => {
     };
 
     // 2. Update user
-    const updateUser = (userInfo) => {
-        return updateProfile(auth.currentUser, userInfo);
+    const updateUser = (name, photo) => {
+        setLoading(true);
+        return updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: photo
+        });
     };
 
     // 3. Login with Password
@@ -45,6 +49,7 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
+            console.log(currentUser);
             setLoading(false);
         });
 
