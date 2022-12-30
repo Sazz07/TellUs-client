@@ -289,7 +289,7 @@ const Navbar = () => {
                     to="/"
                     className="flex rounded-lg py-2 font-semibold text-[#5596e6] text-2xl"
                 >
-                    <img src={logo} className="w-8 rounded-full " alt="" />
+                    {/* <img src={logo} className="w-8 rounded-full " alt="" /> */}
                     <span className="px-1"> TellUs</span>
                 </Link>
             </div>

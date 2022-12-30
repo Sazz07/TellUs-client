@@ -15,20 +15,20 @@ const SharePost = () => {
     const navigate = useNavigate();
     const handleSubmit = (event) => {
         event.preventDefault();
-        const posttext = event.target.posttext.value;
+        const postText = event.target.postText.value;
 
         const date = format(new Date(), "PP");
         const time = format(new Date(), "p");
         // console.log(date, time);
         // Image Upload
         const image = event.target.image.files[0];
-        // console.log(posttext, name, date, time);
+        // console.log(postText, name, date, time);
         setLoading(true);
         // console.log(image);
         imageUpload(image)
             .then((res) => {
                 const postData = {
-                    posttext,
+                    postText,
                     date,
                     time,
                     image: res?.data?.display_url,
@@ -56,21 +56,21 @@ const SharePost = () => {
         setPreview(window.URL.createObjectURL(image));
     };
     return (
-        <div className="mx-5">
+        <div className="mx-8">
             <div>
                 <form
                     onSubmit={handleSubmit}
-                    className=" w-full  border rounded-md shadow-lg px-5  pt-10"
+                    className="w-full border rounded-md shadow-lg px-5  pt-10"
                 >
                     <div className="flex ">
                         <div className="w-12 mr-5 btn-circle avatar">
                             <img src={user?.photoURL} className="rounded-full" alt="" />
                         </div>
-                        <div>
+                        <div className='flex flex-col flex-grow'>
                             <textarea
                                 required
-                                name="posttext"
-                                className="textarea w-96"
+                                name="postText"
+                                className="textarea bg-transparent textarea-bordered"
                                 placeholder="Write something about you..."
                             ></textarea>
                         </div>
@@ -99,7 +99,7 @@ const SharePost = () => {
                             </span>
                         </label>
                         {preview && (
-                            <img src={preview} className="w-16 h-16" alt="preview_img" />
+                            <img src={preview} className="w-32 h-32" alt="preview_img" />
                         )}
                     </div>
                 </form>
